@@ -1149,6 +1149,23 @@ export namespace cloudbuild_v1 {
     uri?: string | null;
   }
   /**
+   * Configuration per workload for both Private Pools and Hybrid Pools.
+   */
+  export interface Schema$GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig {
+    /**
+     * The disk size (in GB) which is requested for the build container. If unset, a value of 10 GB will be used.
+     */
+    diskSizeGb?: string | null;
+    /**
+     * The memory (in GB) which is requested for the build container. If unset, a value of 4 GB will be used.
+     */
+    memoryGb?: number | null;
+    /**
+     * The number of vCPUs which are requested for the build container. If unset, a value of 1 will be used.
+     */
+    vcpuCount?: number | null;
+  }
+  /**
    * Represents the metadata of the long-running operation.
    */
   export interface Schema$GoogleDevtoolsCloudbuildV2OperationMetadata {
@@ -1219,6 +1236,36 @@ export namespace cloudbuild_v1 {
      * The URI to which JSON-containing HTTP POST requests should be sent.
      */
     uri?: string | null;
+  }
+  /**
+   * Configuration for a Hybrid Worker Pool Next ID: 6
+   */
+  export interface Schema$HybridPoolConfig {
+    /**
+     * Default settings which will be applied to builds on this worker pool if they are not specified in the build request.
+     */
+    defaultWorkerConfig?: Schema$HybridWorkerConfig;
+    /**
+     * Required. Immutable. The Anthos/GKE Hub membership of the cluster which will run the actual build operations. Example: projects/{project\}/locations/{location\}/memberships/{cluster_name\}
+     */
+    membership?: string | null;
+  }
+  /**
+   * These settings can be applied to a user's build operations. Next ID: 4
+   */
+  export interface Schema$HybridWorkerConfig {
+    /**
+     * The disk size (in GB) which is requested for the build container. Defaults to 10 GB.
+     */
+    diskSizeGb?: string | null;
+    /**
+     * The memory (in GB) which is requested for the build container. Defaults to 4 GB.
+     */
+    memoryGb?: number | null;
+    /**
+     * The number of vCPUs which are requested for the build container. Defaults to 1.
+     */
+    vcpuCount?: number | null;
   }
   /**
    * Pairs a set of secret environment variables mapped to encrypted values with the Cloud KMS key to use to decrypt the value.
@@ -1480,6 +1527,10 @@ export namespace cloudbuild_v1 {
      * The `WorkerPool` resource to execute the build on. You must have `cloudbuild.workerpools.use` on the project hosting the WorkerPool. Format projects/{project\}/locations/{location\}/workerPools/{workerPoolId\}
      */
     name?: string | null;
+    /**
+     * Configuration per workload.
+     */
+    workerConfig?: Schema$GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig;
   }
   /**
    * Configuration for a V1 `PrivatePool`.
@@ -2002,6 +2053,10 @@ export namespace cloudbuild_v1 {
      * Output only. Checksum computed by the server. May be sent on update and delete requests to ensure that the client has an up-to-date value before proceeding.
      */
     etag?: string | null;
+    /**
+     * Hybrid pool configuration
+     */
+    hybridPoolConfig?: Schema$HybridPoolConfig;
     /**
      * Output only. The resource name of the `WorkerPool`, with format `projects/{project\}/locations/{location\}/workerPools/{worker_pool\}`. The value of `{worker_pool\}` is provided by `worker_pool_id` in `CreateWorkerPool` request and the value of `{location\}` is determined by the endpoint accessed.
      */
@@ -9178,6 +9233,7 @@ export namespace cloudbuild_v1 {
      *       //   "deleteTime": "my_deleteTime",
      *       //   "displayName": "my_displayName",
      *       //   "etag": "my_etag",
+     *       //   "hybridPoolConfig": {},
      *       //   "name": "my_name",
      *       //   "privatePoolV1Config": {},
      *       //   "state": "my_state",
@@ -9464,6 +9520,7 @@ export namespace cloudbuild_v1 {
      *   //   "deleteTime": "my_deleteTime",
      *   //   "displayName": "my_displayName",
      *   //   "etag": "my_etag",
+     *   //   "hybridPoolConfig": {},
      *   //   "name": "my_name",
      *   //   "privatePoolV1Config": {},
      *   //   "state": "my_state",
@@ -9742,6 +9799,7 @@ export namespace cloudbuild_v1 {
      *       //   "deleteTime": "my_deleteTime",
      *       //   "displayName": "my_displayName",
      *       //   "etag": "my_etag",
+     *       //   "hybridPoolConfig": {},
      *       //   "name": "my_name",
      *       //   "privatePoolV1Config": {},
      *       //   "state": "my_state",

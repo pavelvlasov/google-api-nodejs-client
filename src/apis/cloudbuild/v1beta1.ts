@@ -711,6 +711,23 @@ export namespace cloudbuild_v1beta1 {
     fileHash?: Schema$Hash[];
   }
   /**
+   * Configuration per workload for both Private Pools and Hybrid Pools.
+   */
+  export interface Schema$GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig {
+    /**
+     * The disk size (in GB) which is requested for the build container. If unset, a value of 10 GB will be used.
+     */
+    diskSizeGb?: string | null;
+    /**
+     * The memory (in GB) which is requested for the build container. If unset, a value of 4 GB will be used.
+     */
+    memoryGb?: number | null;
+    /**
+     * The number of vCPUs which are requested for the build container. If unset, a value of 1 will be used.
+     */
+    vcpuCount?: number | null;
+  }
+  /**
    * Represents the metadata of the long-running operation.
    */
   export interface Schema$GoogleDevtoolsCloudbuildV2OperationMetadata {
@@ -956,6 +973,10 @@ export namespace cloudbuild_v1beta1 {
      * The `WorkerPool` resource to execute the build on. You must have `cloudbuild.workerpools.use` on the project hosting the WorkerPool. Format projects/{project\}/locations/{location\}/workerPools/{workerPoolId\}
      */
     name?: string | null;
+    /**
+     * Configuration per workload.
+     */
+    workerConfig?: Schema$GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig;
   }
   /**
    * Metadata for `ProcessAppManifestCallback` operation.
