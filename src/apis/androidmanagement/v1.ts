@@ -6176,7 +6176,7 @@ export namespace androidmanagement_v1 {
      *
      *   // Do the magic
      *   const res = await androidmanagement.enterprises.webApps.list({
-     *     // The requested page size. The actual page size may be fixed to a min or max value.
+     *     // The requested page size. This is a hint and the actual page size in the response may be different.
      *     pageSize: 'placeholder-value',
      *     // A token identifying a page of results returned by the server.
      *     pageToken: 'placeholder-value',
@@ -6464,7 +6464,7 @@ export namespace androidmanagement_v1 {
   export interface Params$Resource$Enterprises$Webapps$List
     extends StandardParameters {
     /**
-     * The requested page size. The actual page size may be fixed to a min or max value.
+     * The requested page size. This is a hint and the actual page size in the response may be different.
      */
     pageSize?: number;
     /**
