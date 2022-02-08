@@ -367,6 +367,10 @@ export namespace prod_tt_sasportal_v1alpha1 {
      * ICG. A group of CBSDs that manage their own interference with the group. See CBRSA-TS-2001 V3.0.0 for more details.
      */
     interferenceCoordinationGroup?: string | null;
+    /**
+     * Output only. Whether a CPI has validated to have coordinated with the National Quiet Zone office.
+     */
+    nrqzValidated?: boolean | null;
   }
   /**
    * Information about the model of the device.
