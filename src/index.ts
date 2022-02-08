@@ -299,6 +299,7 @@ export {paymentsresellersubscription_v1} from './apis/paymentsresellersubscripti
 export {people_v1} from './apis/people/v1';
 export {playablelocations_v3} from './apis/playablelocations/v3';
 export {playcustomapp_v1} from './apis/playcustomapp/v1';
+export {playintegrity_v1} from './apis/playintegrity/v1';
 export {plus_v1} from './apis/plus/v1';
 export {policyanalyzer_v1} from './apis/policyanalyzer/v1';
 export {policyanalyzer_v1beta1} from './apis/policyanalyzer/v1beta1';

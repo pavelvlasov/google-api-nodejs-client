@@ -415,6 +415,10 @@ import {
   VERSIONS as playcustomappVersions,
   playcustomapp,
 } from './playcustomapp';
+import {
+  VERSIONS as playintegrityVersions,
+  playintegrity,
+} from './playintegrity';
 import {VERSIONS as plusVersions, plus} from './plus';
 import {
   VERSIONS as policyanalyzerVersions,
@@ -751,6 +755,7 @@ export const APIS: APIList = {
   people: peopleVersions,
   playablelocations: playablelocationsVersions,
   playcustomapp: playcustomappVersions,
+  playintegrity: playintegrityVersions,
   plus: plusVersions,
   policyanalyzer: policyanalyzerVersions,
   policysimulator: policysimulatorVersions,
@@ -993,6 +998,7 @@ export class GeneratedAPIs {
   people = people;
   playablelocations = playablelocations;
   playcustomapp = playcustomapp;
+  playintegrity = playintegrity;
   plus = plus;
   policyanalyzer = policyanalyzer;
   policysimulator = policysimulator;
