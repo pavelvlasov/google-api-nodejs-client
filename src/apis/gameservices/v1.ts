@@ -133,7 +133,6 @@ export namespace gameservices_v1 {
      * The configuration for logging of each type of permission.
      */
     auditLogConfigs?: Schema$AuditLogConfig[];
-    exemptedMembers?: string[] | null;
     /**
      * Specifies a service that will be enabled for audit logging. For example, `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a special value that covers all services.
      */
