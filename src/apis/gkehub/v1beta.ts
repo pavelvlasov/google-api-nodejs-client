@@ -126,6 +126,19 @@ export namespace gkehub_v1beta {
   }
 
   /**
+   * **Anthosobservability**: Per-Membership Feature spec.
+   */
+  export interface Schema$AnthosObservabilityMembershipSpec {
+    /**
+     * use full of metrics rather than optimized metrics. See https://cloud.google.com/anthos/clusters/docs/on-prem/1.8/concepts/logging-and-monitoring#optimized_metrics_default_metrics
+     */
+    doNotOptimizeMetrics?: boolean | null;
+    /**
+     * enable collecting and reporting metrics and logs from user apps See go/onyx-application-metrics-logs-user-guide
+     */
+    enableStackdriverOnApplications?: boolean | null;
+  }
+  /**
    * Spec for App Dev Experience Feature.
    */
   export interface Schema$AppDevExperienceFeatureSpec {}
@@ -952,6 +965,10 @@ export namespace gkehub_v1beta {
    * MembershipFeatureSpec contains configuration information for a single Membership.
    */
   export interface Schema$MembershipFeatureSpec {
+    /**
+     * Anthos Observability-specific spec
+     */
+    anthosobservability?: Schema$AnthosObservabilityMembershipSpec;
     /**
      * Cloud Build-specific spec
      */

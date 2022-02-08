@@ -257,6 +257,10 @@ export namespace gkehub_v1alpha {
      * Multicluster Ingress-specific spec.
      */
     multiclusteringress?: Schema$MultiClusterIngressFeatureSpec;
+    /**
+     * Workload Certificate spec.
+     */
+    workloadcertificate?: Schema$FeatureSpec;
   }
   /**
    * CommonFeatureState contains Hub-wide Feature status information.
@@ -849,6 +853,19 @@ export namespace gkehub_v1alpha {
     state?: string | null;
   }
   /**
+   * **Workload Certificate**: The Hub-wide input for the WorkloadCertificate feature.
+   */
+  export interface Schema$FeatureSpec {
+    /**
+     * Specifies default membership spec. Users can override the default in the member_configs for each member.
+     */
+    defaultConfig?: Schema$MembershipSpec;
+    /**
+     * Immutable. Specifies CA configuration.
+     */
+    provisionGoogleCa?: string | null;
+  }
+  /**
    * FeatureState describes the high-level state of a Feature. It may be used to describe a Feature's state at the environ-level, or per-membershop, depending on the context.
    */
   export interface Schema$FeatureState {
@@ -1291,6 +1308,10 @@ export namespace gkehub_v1alpha {
      * Policy Controller spec.
      */
     policycontroller?: Schema$PolicycontrollerMembershipSpec;
+    /**
+     * Workload Certificate spec.
+     */
+    workloadcertificate?: Schema$MembershipSpec;
   }
   /**
    * MembershipFeatureState contains Feature status information for a single Membership.
@@ -1324,6 +1345,15 @@ export namespace gkehub_v1alpha {
      * The high-level state of this Feature for a single membership.
      */
     state?: Schema$FeatureState;
+  }
+  /**
+   * **Workload Certificate**: The membership-specific input for WorkloadCertificate feature.
+   */
+  export interface Schema$MembershipSpec {
+    /**
+     * Specifies workload certificate management.
+     */
+    certificateManagement?: string | null;
   }
   /**
    * MembershipState describes the state of a Membership resource.
