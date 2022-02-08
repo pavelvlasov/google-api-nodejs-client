@@ -383,7 +383,7 @@ export namespace datacatalog_v1 {
      */
     bigqueryTableSpec?: Schema$GoogleCloudDatacatalogV1BigQueryTableSpec;
     /**
-     * Business Context of the entry.
+     * Business Context of the entry. Not supported for BigQuery datasets
      */
     businessContext?: Schema$GoogleCloudDatacatalogV1BusinessContext;
     /**
@@ -830,7 +830,7 @@ export namespace datacatalog_v1 {
      */
     includeProjectIds?: string[] | null;
     /**
-     * Optional. If `true`, include public tag templates in the search results. By default, they are included only if you have explicit permissions on them to view them. For example, if you are the owner. Other scope fields, for example, `include_org_ids`, still restrict the returned public tag templates and at least one of them is required.
+     * Optional. This field is deprecated. The search mechanism for public and private tag templates is the same.
      */
     includePublicTagTemplates?: boolean | null;
     /**
@@ -1066,7 +1066,7 @@ export namespace datacatalog_v1 {
       [key: string]: Schema$GoogleCloudDatacatalogV1TagTemplateField;
     } | null;
     /**
-     * Indicates whether this is a public tag template. Every user has view access to a *public* tag template by default. This means that: * Every user can use this tag template to tag an entry. * If an entry is tagged using the tag template, the tag is always shown in the response to ``ListTags`` called on the entry. * To get the template using the GetTagTemplate method, you need view access either on the project or the organization the tag template resides in but no other permission is needed. * Operations on the tag template other than viewing (for example, editing IAM policies) follow standard IAM structures. Tags created with a public tag template are referred to as public tags. You can search for a public tag by value with a simple search query instead of using a ``tag:`` predicate. Public tag templates may not appear in search results depending on scope, see: include_public_tag_templates Note: If an [IAM domain restriction](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains) is configured in the tag template's location, the public access will not be enabled but the simple search for tag values will still work.
+     * Indicates whether tags created with this template are public. Public tags do not require tag template access to appear in ListTags API response. Additionally, you can search for a public tag by value with a simple search query instead of using a ``tag:`` predicate.
      */
     isPubliclyReadable?: boolean | null;
     /**
@@ -6548,7 +6548,7 @@ export namespace datacatalog_v1 {
      *   const res = await datacatalog.projects.locations.tagTemplates.patch({
      *     // The resource name of the tag template in URL format. Note: The tag template itself and its child resources might not be stored in the location specified in its name.
      *     name: 'projects/my-project/locations/my-location/tagTemplates/my-tagTemplate',
-     *     // Names of fields whose values to overwrite on a tag template. Currently, only `display_name` and `is_publicly_readable` can be overwritten. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied. Note: Updating the `is_publicly_readable` field may require up to 12 hours to take effect in search results. Additionally, it also requires the `tagTemplates.getIamPolicy` and `tagTemplates.setIamPolicy` permissions.
+     *     // Names of fields whose values to overwrite on a tag template. Currently, only `display_name` and `is_publicly_readable` can be overwritten. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied. Note: Updating the `is_publicly_readable` field may require up to 12 hours to take effect in search results.
      *     updateMask: 'placeholder-value',
      *
      *     // Request body metadata
@@ -7012,7 +7012,7 @@ export namespace datacatalog_v1 {
      */
     name?: string;
     /**
-     * Names of fields whose values to overwrite on a tag template. Currently, only `display_name` and `is_publicly_readable` can be overwritten. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied. Note: Updating the `is_publicly_readable` field may require up to 12 hours to take effect in search results. Additionally, it also requires the `tagTemplates.getIamPolicy` and `tagTemplates.setIamPolicy` permissions.
+     * Names of fields whose values to overwrite on a tag template. Currently, only `display_name` and `is_publicly_readable` can be overwritten. If this parameter is absent or empty, all modifiable fields are overwritten. If such fields are non-required and omitted in the request body, their values are emptied. Note: Updating the `is_publicly_readable` field may require up to 12 hours to take effect in search results.
      */
     updateMask?: string;
 
